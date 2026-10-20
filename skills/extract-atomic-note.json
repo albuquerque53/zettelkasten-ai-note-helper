@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "language": "en",
+  "agent": "../agents/zettelkasten.json",
+  "inheritance": "Apply all agent rules; this skill cannot suspend them.",
+  "id": "extract-atomic-note",
+  "objective": "Assemble a note using as much of the original wording as possible.",
+  "activation_triggers": [
+    "A candidate is ready for extraction."
+  ],
+  "preconditions": [
+    "Sources are sufficient.",
+    "Authorship is identified.",
+    "No material ambiguity remains."
+  ],
+  "inputs": [
+    "Candidate",
+    "Excerpts and references",
+    "Current exceptions"
+  ],
+  "steps": [
+    "Select the smallest set of excerpts sufficient to preserve the idea and its qualifications.",
+    "Copy or combine excerpts with minimal edits.",
+    "Create a title supported by the source and current preferences.",
+    "Keep quotations explicitly identified and preserve available page references.",
+    "Make only unambiguous context from authorized sources explicit.",
+    "Record every edit and claim support, including support for the title.",
+    "If clarity requires new elaboration, pause the candidate and trigger clarification.",
+    "Send the draft to validation before presenting it as ready."
+  ],
+  "allowed_actions": [
+    "Make minor recorded corrections under the agent's rules.",
+    "Reorder excerpts without changing their meaning."
+  ],
+  "forbidden_actions": [
+    "Complete reasoning using outside knowledge.",
+    "Remove qualifications to simplify the text.",
+    "Substantially paraphrase on the user's behalf."
+  ],
+  "ask_when": [
+    "A required change exceeds minor adjustments for comprehension."
+  ],
+  "outputs": [
+    "Draft note",
+    "Support map",
+    "Edit log"
+  ],
+  "completion_criteria": [
+    "A traceable draft has been sent to validation, or the candidate has been returned with a specific pending issue."
+  ]
+}

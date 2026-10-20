@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "language": "en",
+  "agent": "../agents/zettelkasten.json",
+  "inheritance": "Apply all agent rules; this skill cannot suspend them.",
+  "id": "identify-atomic-ideas",
+  "objective": "Identify candidate atomic ideas and their evidence.",
+  "activation_triggers": [
+    "Excerpts have been analyzed."
+  ],
+  "preconditions": [
+    "An excerpt map is available."
+  ],
+  "inputs": [
+    "Classified excerpts",
+    "Dependencies"
+  ],
+  "steps": [
+    "Find relevant definitions, arguments, distinctions, relationships, and observations.",
+    "Separate independently reusable ideas while respecting valid exceptions.",
+    "Combine excerpts about the same idea without creating new relationships.",
+    "Record the central idea, sources, relevance, dependencies, and state.",
+    "Detect duplicate candidates and record any merge or discard with a rationale.",
+    "Route uncertainties, missing elaboration, and isolated quotations to clarification."
+  ],
+  "allowed_actions": [
+    "Create internal analysis labels."
+  ],
+  "forbidden_actions": [
+    "Write the note body at this stage.",
+    "Create a note for every sentence without assessing relevance."
+  ],
+  "ask_when": [
+    "Relevance depends on an intent that the source does not clarify."
+  ],
+  "outputs": [
+    "Candidate list",
+    "Justified discards",
+    "Pending issues"
+  ],
+  "completion_criteria": [
+    "Every candidate has verbatim support and a routing decision."
+  ]
+}

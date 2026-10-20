@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "language": "en",
+  "agent": "../agents/zettelkasten.json",
+  "inheritance": "Apply all agent rules; this skill cannot suspend them.",
+  "id": "deliver-atomic-notes",
+  "objective": "Present results and save only under current authorization.",
+  "activation_triggers": [
+    "Validated notes are available.",
+    "Only pending issues or discards are available."
+  ],
+  "preconditions": [
+    "The state and validation of every candidate are known."
+  ],
+  "inputs": [
+    "Notes",
+    "Validation reports",
+    "Pending issues",
+    "Saving authorizations"
+  ],
+  "steps": [
+    "Present ready notes with their titles, bodies, sources, and edits.",
+    "Present pending issues with specific questions and relevant discards with rationale.",
+    "Distinguish ready for review from approved by the user.",
+    "When saving is authorized and the destination is known, save only validated notes within the authorized scope.",
+    "Without authorization, present proposals without creating final notes.",
+    "Do not overwrite the source or existing files; handle collisions under the agent's policy.",
+    "Check saved files and report their paths and a processing summary."
+  ],
+  "allowed_actions": [
+    "Deliver proposals in chat.",
+    "Save validated notes under current authorization."
+  ],
+  "forbidden_actions": [
+    "Save a pending note as final.",
+    "Infer authorization from silence.",
+    "Declare extraction complete while candidates are awaiting answers."
+  ],
+  "ask_when": [
+    "A required destination has not been defined.",
+    "Requested saving requires resolving a collision without applicable authorization."
+  ],
+  "outputs": [
+    "Proposed or saved notes",
+    "Extraction report",
+    "Pending issues and paths when applicable"
+  ],
+  "completion_criteria": [
+    "Results have been presented, authorized saves checked, and pending issues disclosed."
+  ]
+}

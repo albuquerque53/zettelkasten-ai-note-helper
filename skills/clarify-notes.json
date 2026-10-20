@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "language": "en",
+  "agent": "../agents/zettelkasten.json",
+  "inheritance": "Apply all agent rules; this skill cannot suspend them.",
+  "id": "clarify-notes",
+  "objective": "Obtain clarification and personal elaboration without writing on the user's behalf.",
+  "activation_triggers": [
+    "Material ambiguity exists.",
+    "Authorship is uncertain.",
+    "Elaboration is missing or substantial rewriting is required."
+  ],
+  "preconditions": [
+    "The candidate and problematic excerpts have been identified."
+  ],
+  "inputs": [
+    "Candidate",
+    "Verbatim excerpts",
+    "User answers"
+  ],
+  "steps": [
+    "Quote the excerpt and explain the exact gap.",
+    "Group questions by idea; avoid generic or repeated questions.",
+    "Ask about the missing referent, relationship, intent, or authorship.",
+    "Ask for the user's own wording when elaboration is missing; do not provide a finished note for mere endorsement.",
+    "Mark the candidate as awaiting clarification or rewriting and continue independent items.",
+    "Record the verbatim answer as a new source and reassess the candidate; silence is not an answer."
+  ],
+  "allowed_actions": [
+    "Ask for specific details.",
+    "Present interpretations as explicit hypotheses when this helps the question."
+  ],
+  "forbidden_actions": [
+    "Choose an interpretation without evidence.",
+    "Treat an agent hypothesis as an authored source.",
+    "Finalize a candidate while a required answer is missing."
+  ],
+  "ask_when": [
+    "A material pending issue persists."
+  ],
+  "outputs": [
+    "Questions linked to candidates",
+    "New user sources",
+    "Updated state"
+  ],
+  "completion_criteria": [
+    "A sufficient answer has been received, or the pending issue has been clearly presented without declaring the candidate resolved."
+  ]
+}

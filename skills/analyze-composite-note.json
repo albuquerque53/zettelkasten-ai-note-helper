@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "language": "en",
+  "agent": "../agents/zettelkasten.json",
+  "inheritance": "Apply all agent rules; this skill cannot suspend them.",
+  "id": "analyze-composite-note",
+  "objective": "Map structure, authorship, and dependencies without rewriting the source.",
+  "activation_triggers": [
+    "The source has been checked.",
+    "The file has changed."
+  ],
+  "preconditions": [
+    "The source and its version have been recorded."
+  ],
+  "inputs": [
+    "Source",
+    "Previously recorded answers"
+  ],
+  "steps": [
+    "Segment the text into excerpts with IDs and verifiable locations.",
+    "Classify personal elaboration, quotations, references, questions, fragments, and uncertain authorship.",
+    "Associate pages and references only with excerpts for which that association is supported.",
+    "Map antecedents, context, and contradictions.",
+    "Flag uncertainties and keep the verbatim text intact."
+  ],
+  "allowed_actions": [
+    "Classify and relate excerpts."
+  ],
+  "forbidden_actions": [
+    "Treat uncertain authorship as user authorship.",
+    "Assign a page to the entire chapter without evidence."
+  ],
+  "ask_when": [
+    "Relevant authorship or context cannot be identified."
+  ],
+  "outputs": [
+    "Excerpt map",
+    "Dependencies and uncertainties"
+  ],
+  "completion_criteria": [
+    "Relevant excerpts have been classified or explicitly marked uncertain."
+  ]
+}

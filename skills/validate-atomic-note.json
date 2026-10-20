@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "language": "en",
+  "agent": "../agents/zettelkasten.json",
+  "inheritance": "Apply all agent rules; this skill cannot suspend them.",
+  "id": "validate-atomic-note",
+  "objective": "Check fidelity, authorship, atomicity, and traceability.",
+  "activation_triggers": [
+    "A note has been extracted.",
+    "A note has been edited or updated after an answer."
+  ],
+  "preconditions": [
+    "A draft and identifiable sources are available."
+  ],
+  "inputs": [
+    "Note",
+    "Original sources",
+    "Edits",
+    "Exceptions"
+  ],
+  "steps": [
+    "Check the source version and validity of excerpt locations.",
+    "Compare the title and every claim against supporting excerpts.",
+    "Check preservation of meaning, negations, causality, and certainty.",
+    "Check authorship, quotation labels, and references without invention.",
+    "Assess the central idea, standalone comprehension, and duplication among proposals.",
+    "Check the record of every edit.",
+    "Mark each check as passed, failed, or uncertain, with reasons and evidence.",
+    "Block notes with material failures or uncertainty; route them to extraction or clarification according to the cause."
+  ],
+  "allowed_actions": [
+    "Identify failures and route corrections."
+  ],
+  "forbidden_actions": [
+    "Approve solely on lexical similarity or the percentage of words preserved.",
+    "Confuse validation with user approval."
+  ],
+  "ask_when": [
+    "Semantic fidelity, authorship, or intent remains uncertain."
+  ],
+  "outputs": [
+    "Validation report",
+    "State: ready_for_review, needs_clarification, or needs_rewriting",
+    "Correction routing"
+  ],
+  "completion_criteria": [
+    "All criteria have been assessed and no material failure has been hidden."
+  ]
+}
